@@ -23,7 +23,8 @@ const sectionClass = "border-t border-rule pt-7 pb-2";
 
 function pickError(err: unknown, t: (k: string) => string): string {
   if (err instanceof ApiError) {
-    if (err.errorCode === "WrongCurrentPasswordError") return t("auth.errors_wrong_current_password");
+    if (err.errorCode === "WrongCurrentPasswordError")
+      return t("auth.errors_wrong_current_password");
     if (err.errorCode === "EmailAlreadyRegisteredError") return t("auth.errors.email_taken");
     if (err.status === 422) return t("auth.errors.weak_password");
   }
@@ -80,7 +81,11 @@ function DisplayNameSection() {
         />
       </label>
       {error && <p className="font-mono text-[12px] text-warn">{error}</p>}
-      {saved && <p className="font-mono text-[11px] uppercase tracking-[1.6px] text-accent">{t("auth.account_saved")}</p>}
+      {saved && (
+        <p className="font-mono text-[11px] uppercase tracking-[1.6px] text-accent">
+          {t("auth.account_saved")}
+        </p>
+      )}
       <button type="submit" disabled={submitting} className={submitClass}>
         {submitting ? t("auth.submitting") : t("auth.account_save")}
       </button>
@@ -288,9 +293,7 @@ function DeleteSection() {
           </button>
         </div>
       )}
-      {error && (
-        <p className="mt-3 font-serif text-[14px] italic text-warn">{error}</p>
-      )}
+      {error && <p className="mt-3 font-serif text-[14px] italic text-warn">{error}</p>}
     </section>
   );
 }

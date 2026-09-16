@@ -53,7 +53,11 @@ export function AccountLink({ className }: Props) {
   return (
     <Link
       to="/sign-in"
-      className={cn(chipBase, "border-accent text-accent hover:bg-accent hover:text-paper", className)}
+      className={cn(
+        chipBase,
+        "border-accent text-accent hover:bg-accent hover:text-paper",
+        className,
+      )}
     >
       {t("auth.sign_in")}
     </Link>

@@ -43,9 +43,7 @@ export function Footer() {
     <footer className="border-t border-rule px-[clamp(20px,4vw,56px)] py-5 font-mono text-[12px] uppercase tracking-[1.2px] text-ink-mute">
       <div className="flex flex-col items-center gap-2 text-center sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-6 sm:text-start">
         {/* Left — dataset stats */}
-        <span className="text-ink-soft sm:justify-self-start">
-          {stat ?? " "}
-        </span>
+        <span className="text-ink-soft sm:justify-self-start">{stat ?? " "}</span>
 
         {/* Centre — created-by byline */}
         <span className="text-ink-mute sm:justify-self-center">

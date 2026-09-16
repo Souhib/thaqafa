@@ -50,7 +50,10 @@ export function unwrap<T>(result: {
     throw new ApiError(result.error as ApiErrorBody, status);
   }
   if (result.data === undefined) {
-    throw new ApiError({ error: "EmptyResponse", message: "empty response body" }, result.response?.status ?? 0);
+    throw new ApiError(
+      { error: "EmptyResponse", message: "empty response body" },
+      result.response?.status ?? 0,
+    );
   }
   return result.data;
 }

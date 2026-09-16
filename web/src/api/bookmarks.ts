@@ -27,7 +27,8 @@ export function useBookmarksQuery(options: { enabled?: boolean } = {}) {
 export function useCreateBookmarkMutation() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (body: BookmarkCreate) => unwrap(await createBookmarkApiV1BookmarksPost({ body })),
+    mutationFn: async (body: BookmarkCreate) =>
+      unwrap(await createBookmarkApiV1BookmarksPost({ body })),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: BOOKMARKS_QUERY_KEY }),
   });
 }
@@ -36,7 +37,9 @@ export function useDeleteBookmarkMutation() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (bookmarkId: string) => {
-      const result = await deleteBookmarkApiV1BookmarksBookmarkIdDelete({ path: { bookmark_id: bookmarkId } });
+      const result = await deleteBookmarkApiV1BookmarksBookmarkIdDelete({
+        path: { bookmark_id: bookmarkId },
+      });
       if (result.error !== undefined) {
         // 204 returns empty body; we only throw when there's an explicit error.
         unwrap(result);

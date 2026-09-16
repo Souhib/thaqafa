@@ -20,7 +20,8 @@ interface ResetSearch {
 
 function pickResetErrorMessage(err: unknown, t: (k: string) => string): string {
   if (err instanceof ApiError) {
-    if (err.errorCode === "InvalidPasswordResetTokenError") return t("auth.errors.invalid_reset_token");
+    if (err.errorCode === "InvalidPasswordResetTokenError")
+      return t("auth.errors.invalid_reset_token");
     if (err.status === 422) return t("auth.errors.weak_password");
   }
   return t("auth.errors.generic");

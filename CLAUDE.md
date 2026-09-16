@@ -351,6 +351,12 @@ quran-extracts JSON that nobody in the backend ever serves.
 
 ## Deployment & daily rebuild (Dokploy)
 
+The web nginx upstream uses `thaqafa-backend:5111` and Docker DNS with
+`resolve` (nginx >= 1.27.3). Do not use the generic `backend` hostname on
+the shared Dokploy network: the September 16 outage resolved it to another
+application, returning 502 despite a healthy Thaqafa backend. DNS refresh
+also follows backend container replacements without a frontend restart.
+
 Production runs on Dokploy (`docker-compose.dokploy.yml` at the repo
 root). Three services:
 - `thaqafa-db` — PostgreSQL 16, named volume `thaqafa-postgres-data`,

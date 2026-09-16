@@ -113,9 +113,7 @@ describe("reorderRefsQuranFirst", () => {
   });
 
   it("preserves the original order when Qur'an is already first", () => {
-    expect(reorderRefsQuranFirst("Qur'an 2:255; Bukhari 660")).toBe(
-      "Qur'an 2:255; Bukhari 660",
-    );
+    expect(reorderRefsQuranFirst("Qur'an 2:255; Bukhari 660")).toBe("Qur'an 2:255; Bukhari 660");
   });
 
   it("preserves order between non-Qur'an pieces", () => {

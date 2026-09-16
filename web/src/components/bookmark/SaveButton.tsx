@@ -10,7 +10,11 @@
 // rather than a generic ♡/♥ that renders inconsistently across fonts.
 
 import { useTranslation } from "react-i18next";
-import { useBookmarksQuery, useCreateBookmarkMutation, useDeleteBookmarkMutation } from "@/api/bookmarks";
+import {
+  useBookmarksQuery,
+  useCreateBookmarkMutation,
+  useDeleteBookmarkMutation,
+} from "@/api/bookmarks";
 import type { BookmarkOut } from "@/api/generated/types.gen";
 import { useAuth } from "@/auth/AuthProvider";
 import { cn } from "@/lib/utils";

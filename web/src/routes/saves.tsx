@@ -35,7 +35,11 @@ function detailHref(b: BookmarkOut): string {
 
 function formatDate(iso: string, lang: Language): string {
   try {
-    return new Intl.DateTimeFormat(lang, { year: "numeric", month: "short", day: "numeric" }).format(new Date(iso));
+    return new Intl.DateTimeFormat(lang, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }).format(new Date(iso));
   } catch {
     return iso.slice(0, 10);
   }
@@ -135,12 +139,17 @@ function SavesPage() {
         )}
 
         {!isLoading && items.length > 0 && filtered.length === 0 && (
-          <p className="py-10 text-center font-serif italic text-ink-soft">{t("auth.saves_no_match")}</p>
+          <p className="py-10 text-center font-serif italic text-ink-soft">
+            {t("auth.saves_no_match")}
+          </p>
         )}
 
         <ul className="flex flex-col">
           {filtered.map((b) => (
-            <li key={b.id} className="flex items-start justify-between gap-4 border-b border-rule-soft py-4">
+            <li
+              key={b.id}
+              className="flex items-start justify-between gap-4 border-b border-rule-soft py-4"
+            >
               <Link to={detailHref(b)} className="thaqafa-link flex flex-1 flex-col gap-2">
                 <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <Eyebrow color="accent" className="text-[10.5px]">

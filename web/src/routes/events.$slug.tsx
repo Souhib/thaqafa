@@ -94,9 +94,7 @@ function EventDetailPage() {
                 (query.data.disputed ? (
                   <DisputedDateAnnotation value={query.data.hijri} onClick={openDispute} />
                 ) : (
-                  <span className="font-serif text-[18px] italic text-ink">
-                    {query.data.hijri}
-                  </span>
+                  <span className="font-serif text-[18px] italic text-ink">{query.data.hijri}</span>
                 ))}
               {query.data.gregorian && (
                 <>
@@ -224,7 +222,12 @@ function EventDetailPage() {
                   return (
                     <div key={i} className="border-b border-rule-soft py-2.5">
                       {s.verify ? (
-                        <a className="thaqafa-link" href={s.verify} target="_blank" rel="noreferrer">
+                        <a
+                          className="thaqafa-link"
+                          href={s.verify}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           {inner}
                         </a>
                       ) : (

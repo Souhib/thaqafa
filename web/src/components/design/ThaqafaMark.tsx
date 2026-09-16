@@ -45,8 +45,18 @@ export function ThaqafaMark({ size = 40, className }: Props) {
         border: "1px solid var(--rule)",
       }}
     >
-      <svg width={size} height={size} viewBox="0 0 24 24" style={{ position: "absolute", inset: 0 }}>
-        <g fill="none" stroke="var(--ink)" strokeWidth={stroke * (24 / size)} strokeLinejoin="miter">
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        style={{ position: "absolute", inset: 0 }}
+      >
+        <g
+          fill="none"
+          stroke="var(--ink)"
+          strokeWidth={stroke * (24 / size)}
+          strokeLinejoin="miter"
+        >
           <polygon points={sqPoints(0)} />
           <polygon points={sqPoints(45)} />
         </g>
